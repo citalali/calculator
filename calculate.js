@@ -3,7 +3,9 @@ var holdOp = '' ;
 var holdNum = '';
 const buttons = document.getElementsByTagName("button");
 const result = document.getElementById("h1");
-var elementId = '';
+var numberScrn = '';
+var OperatorNumber = '0';
+var EingabeNumber = '0';
 
 
 function changeH1() {
@@ -17,30 +19,43 @@ function changeH1() {
     // If element has id
 //	changeH1();
 //}
-						  
+				/// enter Number 
+					/// run function to assign var to number -> var name +1 
+						/// var to hold number of operators and Numbers!!!! 
+						  /// new var + VarOperatorNumber = Operator SAME WITH NUMBERS
+/// var holdOp + OperatorNumber = holdOp;
+/// var holdNum + EingabeNumber = holdNum;
+/// OperatorNumber = OperatorNumber + 1; same same thing
+
+			//// UBERALL numberScrn changes 
+			/// ERGEBNIS numberScrn = EingabeNumber1 + OperatorNumber1 + EingabeNumber2 + OperatorNumber2 bla bla LOOP!!!
+
+
+			////// LOOOPS ANSCHAUEN AGAIN SONST SUPI VILLEICHT AUCH WENN DANN LOOP
+						
 
 						  
 document.getElementById("1").onclick = function() {
 	document.body.style.background = 'green';
-	elementId = elementId + 1 ;
+	numberScrn = numberScrn + 1 ;
 	changeH1();
 };				
 
 document.getElementById("+").onclick = function() {
 	document.body.style.background = 'pink';
-	elementId = elementId + '+' ;
+	numberScrn = numberScrn + '+' ;
 	holdOp = + ;
 	changeH1();
 };	
 document.getElementById("2").onclick = function() {
 	document.body.style.background = 'grey';
-	elementId = elementId + 2;
+	numberScrn = numberScrn + 2;
 	changeH1();
 };	
 
 document.getElementById("=").onclick = function() {
 	document.body.style.background = 'yellow';
-	elementId = elementId + elementId;
+	numberScrn = holdNum + holdOp + holdNum;
 	changeH1();
 };	
 
