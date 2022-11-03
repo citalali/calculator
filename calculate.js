@@ -1,29 +1,51 @@
 
-var holdNumber = "bla" ;
-
-document.getElementsByClassName("but").onclick = function() {
-
-	changeH1();
-};
+var holdOp = '' ;
+var holdNum = '';
+const buttons = document.getElementsByTagName("button");
+const result = document.getElementById("h1");
+var elementId = '';
 
 
 function changeH1() {
 	document.getElementById("h1").innerHTML = elementId;
 }
 
-document.addEventListener('click', (e) =>
-  {
+//document.addEventListener('click', (e) =>
+ // {
     // Retrieve id from clicked element
-    let elementId = e.target.id;
+  //  let elementId = e.target.id;
     // If element has id
-	changeH1();
-}
-
+//	changeH1();
+//}
+						  
 
 						  
-const buttons = document.getElementsByTagName("button");
-const result = document.getElementById("h1");
+document.getElementById("1").onclick = function() {
+	document.body.style.background = 'green';
+	elementId = elementId + 1 ;
+	changeH1();
+};				
 
+document.getElementById("+").onclick = function() {
+	document.body.style.background = 'pink';
+	elementId = elementId + '+' ;
+	holdOp = + ;
+	changeH1();
+};	
+document.getElementById("2").onclick = function() {
+	document.body.style.background = 'grey';
+	elementId = elementId + 2;
+	changeH1();
+};	
+
+document.getElementById("=").onclick = function() {
+	document.body.style.background = 'yellow';
+	elementId = elementId + elementId;
+	changeH1();
+};	
+
+
+/**
 const buttonPressed = e => { 
   result.innerHTML = `ID of <em>${e.target.innerHTML}</em> is <strong>${e.target.id}</strong>`;
 }
@@ -36,10 +58,15 @@ for (let button of buttons) {
 						  
 						  
 
-/*
+
  function changeBackground(color) {
 	document.body.style.background = color;
 }
+
+document.getElementsByClassName("but").onclick = function() {
+
+	changeH1();
+};
 
 
 
@@ -51,4 +78,4 @@ function changeScreen() {
 
 }
 document.getElementById("one").onclick = alert('green');
-*/
+**/
