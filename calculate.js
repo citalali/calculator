@@ -4,11 +4,19 @@ const buttons = document.getElementsByTagName("button");
 const result = document.getElementById("h1");
 var numberScrn = '';
 var OperatorNumber = '0';
-var EingabeNumber = '0';
+var EingabeNumber = [];
+var i = 0;
+var ERG = 0;
 
+var plus = function(a, b) {
+	ERG = a + b;
+}
 
+function equalz() {
+	document.getElementById("h1").innerHTML = ERG;
+}
 function changeH1() {
-	document.getElementById("h1").innerHTML = elementId;
+	document.getElementById("h1").innerHTML = numberScrn;
 }
 
 //document.addEventListener('click', (e) =>
@@ -34,28 +42,33 @@ function changeH1() {
 						
 
 						  
-document.getElementById("1").onclick = function() {
+document.getElementById("one").onclick = function() {
 	document.body.style.background = 'green';
-	numberScrn = numberScrn + 1 ;
+	numberScrn = numberScrn + '1' ;
+	EingabeNumber.push(1); 
 	changeH1();
+	i = i + 1;
 };				
 
 document.getElementById("+").onclick = function() {
 	document.body.style.background = 'pink';
 	numberScrn = numberScrn + '+' ;
-	holdOp = + ;
+holdOp = +0 ;
 	changeH1();
 };	
-document.getElementById("2").onclick = function() {
+document.getElementById("two").onclick = function() {
 	document.body.style.background = 'grey';
-	numberScrn = numberScrn + 2;
+	numberScrn = numberScrn + '2';
+	EingabeNumber.push(2);
 	changeH1();
+	i = i + 1;
 };	
 
 document.getElementById("=").onclick = function() {
 	document.body.style.background = 'yellow';
-	numberScrn = holdNum + holdOp + holdNum;
-	changeH1();
+	//numberScrn = EingabeNumber[0] + EingabeNumber[1] + EingabeNumber[2];
+	plus(EingabeNumber[0], EingabeNumber[1]);
+	equalz();
 };	
 
 
