@@ -1,15 +1,17 @@
 body {
-  background-color: powderblue;
+  background-color: #bfbfbf;
+  color: green;
 }
 h1 {
-  border: medium solid darkblue;
-  color: darkblue;
+  border: 2px solid #8c8c8c;
+  color: #281314;
   width: fit-content;
   padding: 1%;
   margin-top: 5px;
+  background-color: #9d859f;
 }
 button {
-  background-color: darkblue;
+  background-color: #428c7a;
   color: white;
 }
 
@@ -17,15 +19,30 @@ button {
 }
 
 body {
-  border: medium solid darkblue;
+  border: 2px solid #8c8c8c;
   width: fit-content;
   padding: 1%;
 }
 
 #solarpanel {
-  border: medium solid darkblue;
+  border: medium solid #8c8c8c;
   width: 60px;
   height: 20px;
   color: aliceblue;
-  background-color: darkblue;
+  background-color: #281314;
+}
+
+html {
+  background-color: white;
+}
+
+#blockOperators {
+  margin-top: 10px;
+}
+#buttons {
+  text-align: center;
+}
+#equal {
+  background-color: #9d859f;
+  color: #281314;
 }
