@@ -10,6 +10,8 @@ var calculateSingelResult = "";
 var numOne;
 var operator = 0;
 
+alert("Warning: Please only use single digits and use * & / before + & -");
+
 function changeH1() {
   numberScreen = numberScreen + numberAtMoment;
   document.getElementById("h1").innerHTML = numberScreen;
