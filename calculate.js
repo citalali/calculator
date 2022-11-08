@@ -3,10 +3,12 @@ var numberScreen = "";
 var numberAtMoment;
 var numberToCalc = [];
 var operatorsToCalc = [];
-var result = "";
+var result;
 var numbersTotal = "";
 var operatorsTotal = "";
 var calculateSingelResult = "";
+var numOne;
+var operator = 0;
 
 function changeH1() {
   numberScreen = numberScreen + numberAtMoment;
@@ -38,49 +40,58 @@ function numbersToArray() {
 }
 
 function calculateEnd() {
-  numbersTotal = numberToCalc.length;
-  operatorsTotal = operatorsToCalc.length;
   calculations();
   numberAtMoment = result;
   changeH1();
 }
 
+var numTwo = 1;
+
 function calculations() {
-  for (let i = 0; i < numberToCalc.length; ) {
-    var operator = 0;
-    var number = 2;
-    if (i == 0) {
-      calculateSingel(
-        operatorsToCalc[operator],
-        numberToCalc[0],
-        numberToCalc[1]
-      );
-      b = +1;
-      i++;
-    } else {
-      //calculateSingel(
-      // operatorsToCalc[operator],
-      //calculateSingelResult,
-      //numberToCalc[number]
-      //);
-      operator++;
-      number++;
-      i++;
-      result = calculateSingelResult;
-    }
-  }
+  let i = 0;
+  let t = numberToCalc.length - 1;
+  numOne = numberToCalc[0];
 
-  function calculateSingel(op, a, b) {
-    calculateSingelResult = parseInt(a) + parseInt(b);
-  }
-  //for loop {}
-  //switch statement
-
-  //result =
-  //parseInt(numberToCalc[0]) +
-  //operatorsToCalc[0] +
-  //parseInt(numberToCalc[1]);
+  do {
+    calculateSingel(
+      //(operator, 10, 5);
+      operatorsToCalc[operator],
+      numOne,
+      numberToCalc[numTwo]
+    );
+    operator++;
+    numOne = calculateSingelResult;
+    numTwo++;
+    i++;
+  } while (i < t); //numberToCalc.length);
+  result = calculateSingelResult;
 }
+
+function calculateSingel(op, a, b) {
+  switch (op) {
+    case "+":
+      calculateSingelResult = parseInt(a) + parseInt(b);
+      break;
+    case "-":
+      calculateSingelResult = parseInt(a) - parseInt(b);
+      break;
+    case "*":
+      calculateSingelResult = parseInt(a) * parseInt(b);
+      break;
+    case "/":
+      calculateSingelResult = parseInt(a) / parseInt(b);
+      break;
+    default:
+      calculateSingelResult = "something didnt work";
+  }
+}
+//for loop {}
+//switch statement
+
+//result =
+//parseInt(numberToCalc[0]) +
+//operatorsToCalc[0] +
+//parseInt(numberToCalc[1]);
 
 // beginning of the script
 
