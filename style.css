@@ -21,6 +21,7 @@ button {
 body {
   border: 2px solid #8c8c8c;
   width: fit-content;
+  min-width: 150px;
   padding: 1%;
   margin: 0 auto;
   margin-top: 10%;
@@ -32,6 +33,23 @@ body {
   height: 20px;
   color: aliceblue;
   background-color: #281314;
+}
+
+#casino {
+  float: right;
+  margin-top: -37px;
+  padding-left: -10px;
+
+  font-weight: 550;
+  color: #281314;
+  font-family: monospace;
+  font-stretch: condensed;
+  font-size: large;
+}
+
+span {
+  color: #9d859f;
+  font-style: italic;
 }
 
 html {
