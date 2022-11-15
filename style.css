@@ -6,7 +6,7 @@ h1 {
   border: 2px solid #8c8c8c;
   color: #281314;
   min-width: 210px;
-min-height: 37px;
+  min-height: 37px;
 
   margin-top: 5px;
   background-color: #9d859f;
@@ -14,9 +14,6 @@ min-height: 37px;
 button {
   background-color: #428c7a;
   color: white;
-}
-
-#screenNumbers {
 }
 
 body {
@@ -39,6 +36,7 @@ body {
   float: right;
   margin-top: -37px;
   padding-left: -10px;
+  transition: transform 0.5s;
 
   font-weight: 550;
   color: #281314;
@@ -47,7 +45,7 @@ body {
   font-size: large;
 }
 
-span {
+#n {
   color: #9d859f;
   font-style: italic;
 }

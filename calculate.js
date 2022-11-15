@@ -112,12 +112,19 @@ function resetCalculator() {
   numTwo = 1;
   lastInput = "";
   length = 0;
+  rotateN();
   changeH1();
+}
+
+function rotateN() {
+  //document.getElementById("casino").style.transform = "rotate(360deg)";
+
+  document.getElementById("casino").style.transform = "rotate(5400deg)";
 }
 
 function checkDoubleDigits() {
   var inputNow = "";
-  if (numberAtMoment > 0) {
+  if (numberAtMoment > -1) {
     inputNow = "number";
     if (inputNow == lastInput) {
       length = numberToCalc.length - 1;
