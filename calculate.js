@@ -14,7 +14,6 @@ var lastInput = "";
 var length = 0;
 var resetCount = 0;
 
-
 function changeH1() {
   numberScreen = numberScreen + numberAtMoment;
   document.getElementById("h1").innerHTML = numberScreen;
@@ -42,12 +41,7 @@ function calculations() {
   numOne = numberToCalc[0];
 
   do {
-    calculateSingel(
-      //(operator, 10, 5);
-      operatorsToCalc[operator],
-      numOne,
-      numberToCalc[numTwo]
-    );
+    calculateSingel(operatorsToCalc[operator], numOne, numberToCalc[numTwo]);
     operator++;
     numOne = calculateSingelResult;
     numTwo++;
@@ -95,7 +89,8 @@ function resetCalculator() {
 }
 
 function rotateN() {
-  document.getElementById("casino").style.transform = "rotate( " + resetCount + "turn)";
+  document.getElementById("casino").style.transform =
+    "rotate( " + resetCount + "turn)";
 }
 
 function checkDoubleDigits() {
@@ -119,18 +114,13 @@ function checkDoubleDigits() {
   } else {
     inputNow = "operator";
     if (inputNow == lastInput) {
-      //document.body.style.background = "grey";
-      //alert("error");
       numberAtMoment = " error ";
       changeH1();
-    } 
-    else if ( numberAtMoment == "*"){
-      //document.body.style.background = "blue";
+    } else if (numberAtMoment == "*") {
       operatorsToCalc.push(numberAtMoment);
       lastInput = "operator";
       changeH1();
-    }
-    else {
+    } else {
       operatorsToCalc.push(numberAtMoment);
       lastInput = "operator";
       changeH1();
