@@ -13,6 +13,7 @@ var numTwo = 1;
 var lastInput = "";
 var length = 0;
 var resetCount = 0;
+var clickedEquals = false;
 
 function changeH1() {
   numberScreen = numberScreen + numberAtMoment;
@@ -21,8 +22,18 @@ function changeH1() {
 
 function setOnClick() {
   var buttons = document.getElementsByClassName("but");
+
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function () {
+      console.log("clicked", buttons[i].value);
+      if (clickedEquals) {
+        resetCalculator();
+        console.log("reset");
+      }
+      if (buttons[i].value == "=") {
+        console.log("equals");
+        clickedEquals = true;
+      }
       numberAtMoment = buttons[i].value;
       checkDoubleDigits();
     };
@@ -30,24 +41,39 @@ function setOnClick() {
 }
 
 function calculateEnd() {
-  calculations();
+  while (operatorsToCalc.length > 0) {
+    calculations();
+  }
+  result = numberToCalc[0];
   numberAtMoment = "=" + result;
   changeH1();
 }
 
 function calculations() {
   let i = 0;
-  let t = numberToCalc.length - 1;
-  numOne = numberToCalc[0];
+  let t = operatorsToCalc.length;
+  let index = -1;
 
-  do {
-    calculateSingel(operatorsToCalc[operator], numOne, numberToCalc[numTwo]);
-    operator++;
-    numOne = calculateSingelResult;
-    numTwo++;
-    i++;
-  } while (i < t); //numberToCalc.length);
-  result = calculateSingelResult;
+  for (i = 0; i < t; i++) {
+    if (operatorsToCalc[i] === "*" || operatorsToCalc[i] === "/") {
+      index = i;
+      break;
+    }
+  }
+
+  if (index !== -1) {
+    calculateSingel(
+      operatorsToCalc[index],
+      numberToCalc[index],
+      numberToCalc[index + 1]
+    );
+    operatorsToCalc.splice(index, 1);
+    numberToCalc.splice(index, 2, calculateSingelResult);
+  } else {
+    calculateSingel(operatorsToCalc[0], numberToCalc[0], numberToCalc[1]);
+    operatorsToCalc.splice(0, 1);
+    numberToCalc.splice(0, 2, calculateSingelResult);
+  }
 }
 
 function calculateSingel(op, a, b) {
@@ -65,7 +91,7 @@ function calculateSingel(op, a, b) {
       calculateSingelResult = parseInt(a) / parseInt(b);
       break;
     default:
-      calculateSingelResult = "something didnt work";
+      calculateSingelResult = "something didn't work";
   }
 }
 
@@ -84,6 +110,7 @@ function resetCalculator() {
   lastInput = "";
   length = 0;
   resetCount++;
+  clickedEquals = false;
   rotateN();
   changeH1();
 }
